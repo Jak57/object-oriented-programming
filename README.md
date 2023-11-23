@@ -139,3 +139,30 @@ class Example {
 ```
 ----
 # Methods
+**Example 1**
+```
+class Student {
+
+}
+
+class Example {
+    static void m2(Student s) {
+        System.out.println("m2 method");
+    }
+
+    void m3(int p, int q) {
+        System.out.println(p+q);
+    }
+    public static void  main(String args[]) {
+        Student s = new Student();
+        Example ob = new Example();
+        ob.m3(2, 3);
+        Example.m2(s);
+    }
+}
+
+/*
+5
+m2 method
+*/
+```
