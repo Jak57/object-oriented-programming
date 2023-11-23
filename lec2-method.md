@@ -1,5 +1,5 @@
 # Methods
-**Example 1**
+**Example 01**
 ```
 class Student {
 
@@ -29,10 +29,6 @@ m2 method
 
 **Example 02**
 ```
-class Student {
-
-}
-
 class Example {
     int p = 100, q = 200;
     void m1(int a, int b) {
@@ -63,10 +59,6 @@ class Example {
 
 **Example 03**
 ```
-class Student {
-
-}
-
 class Example {
     int a = 100, b = 200;
     void m1(int a, int b) {
@@ -83,5 +75,67 @@ class Example {
 /*
 6
 300
+*/
+```
+**Example 04**
+```
+class Student {
+
+}
+class Example {
+    int a = 15, b = 20;
+    Student m1(Example e) {
+        System.out.println("hello m1");
+        return new Student();
+    }
+    public static void  main(String args[]) {
+        Example ob1 = new Example();
+        Example ob2 = new Example();
+        Student ob3 = ob1.m1(ob2);
+        System.out.println(ob3);
+    }
+}
+
+/*
+hello m1
+Student@5ca881b5
+*/
+```
+**Example 04**
+```
+
+class Example {
+    int a = 15, b = 20;
+    static int c = 5, d = 7;
+
+    Example m1() {
+        a = 1;
+        b = 2;
+        c = 3;
+        d = 4;
+        return new Example();
+    }
+
+    Example m2() {
+        a = 10;
+        b = 20;
+        c = 30;
+        d = 40;
+        return this;
+    }
+
+    public static void  main(String args[]) {
+        Example ob = new Example();
+        Example ob2 = ob.m1();
+        System.out.println(ob2.a + " " + ob2.b + " " + Example.c + " " + Example.d);
+    
+        Example ob3 = ob.m2();
+        System.out.println(ob3.a + " " + ob3.b + " " + Example.c + " " + Example.d);
+    }
+}
+
+/*
+15 20 3 4
+1 2 3 4
 */
 ```
