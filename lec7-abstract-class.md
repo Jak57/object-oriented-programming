@@ -86,6 +86,38 @@ constructor of CSE18
 m1 method CSE18
 */
 ```
-# Nested Class
+
 **Example 03**
+```
+
+abstract class X {
+    abstract void m1();
+    void m2() {
+        System.out.println("m2 method - A");
+    }
+}
+class Y extends X {
+    void m1() {
+        System.out.println("m1 method - B");
+    }
+}
+class Z extends X {
+    void m3() {
+        System.out.println("m3 method - C");
+    }
+    void m1() {
+        System.out.println("m1 method - C");
+    }
+}
+public class CSE18{
+    public static void main(String args[]) {
+        Y ob = new Y();
+        ob.m1();
+    }
+}
+
+/*
+m1 method - B
+*/
+```
 
