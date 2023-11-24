@@ -67,3 +67,36 @@ m3 method
 m1 method
 */
 ```
+
+**Example 03: Interface variables**
+```
+
+interface I1 {
+    int B = 10;
+    void m1();
+}
+interface I2 {
+    int B = 40;
+    void m2();
+}
+public class CSE18 implements I1, I2{
+    public void m1() {
+        System.out.println("m1 method");
+    }
+    public void m2() {
+        System.out.println("m2 method");
+    }
+    public static void main(String args[]) {
+        CSE18 ob = new CSE18();
+        ob.m1();
+        ob.m2();
+        System.out.println(I1.B + " " + I2.B);
+    }
+}
+
+/*
+m1 method
+m2 method
+10 40
+*/
+```
