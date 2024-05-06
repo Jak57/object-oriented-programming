@@ -1,3 +1,5 @@
+// v1
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -31,5 +33,42 @@ public class Client {
             }
         }
         socket.close();
+    }
+}
+
+// v2
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.util.Scanner;
+
+public class Client {
+    public static void main(String[] args) throws IOException {
+        Socket clientSocket = new Socket("127.0.0.1", 22222);
+        System.out.println("Client connected...");
+
+        ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
+        ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
+
+        while (true) {
+            System.out.print("\nPlease, enter your message: ");
+            Scanner scanner = new Scanner(System.in);
+            String cMsg = scanner.nextLine();
+
+            if (cMsg.equals("exit"))
+                break;
+            System.out.println("CLIENT sent: " + cMsg);
+            oos.writeObject(cMsg);
+
+            try {
+                Object sMsg = ois.readObject();
+                System.out.println("CLIENT received: " + (String) sMsg);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        clientSocket.close();
     }
 }
