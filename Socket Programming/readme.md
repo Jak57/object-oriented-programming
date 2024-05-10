@@ -5,4 +5,4 @@
 4. Simple Client Server without Thread
 5. Simple Client Server with Thread
 6. Reader Writer Thread
-7. Simple Chat Application
+7. Java Group Chat v1
